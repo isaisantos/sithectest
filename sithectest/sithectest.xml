@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>sithectest</name>
+    </assembly>
+    <members>
+        <member name="T:sithectest.Controllers.HumanoListaController">
+            <summary>
+            Retorna una lista de elementos de tipo Humanos
+            </summary>
+        </member>
+        <member name="M:sithectest.Controllers.HumanoListaController.Get">
+            <summary>
+            Retorna una lista de objetos de tipo Humanos con los siguientes valores (Id, Nombre, Sexo, Edad, Altura, Peso)
+            sin conectarse a la base de datos
+            </summary>
+            <returns>Lista de objetos de tipo HumanoData en JSON</returns>
+            <example>https://localhost:44388/humanolista</example>
+        </member>
+        <member name="T:sithectest.Controllers.HumanosController">
+            <summary>
+            Controler para el CRUD de la tabla Humanos
+            </summary>
+        </member>
+        <member name="M:sithectest.Controllers.HumanosController.Get">
+            <summary>
+            Retorna la lista de todos los registros de la tabla Humanos
+            </summary>
+            <returns>Retorna un valor JSON con el estatus del proceso y un result la lista de registros de la tabla Humanos, 
+            el estatus puede ser true o false</returns>
+            <example>https://localhost:44388/humanos</example>
+        </member>
+        <member name="M:sithectest.Controllers.HumanosController.Get(System.Int32)">
+            <summary>
+            Retorna un registro de la tabla Humanos dado un ID 
+            </summary>
+            <param name="id">ID del humano a buscar</param>
+            <returns>Retorna un valor JSON con el estatus del proceso y un result con el registro encontrado, 
+            el estatus puede ser true o false</returns>
+            <example>https://localhost:44388/humanos/1</example>
+        </member>
+        <member name="M:sithectest.Controllers.HumanosController.Post(sithectest.Models.Humanos)">
+            <summary>
+            Insertar un nuevo registro en la tabla Humanos
+            </summary>
+            <param name="humano">Objeto JASON de tipo Humanos con las propiedades Id, Nombre, Sexo, Edad, Altura, Peso. 
+            Ejemplo: { "Id":5, "Nombre":"Jose Lopez", "Sexo":"Masculino", "Edad":55, "Altura":1.75, "Peso": 72 }</param>
+            <returns>Retorna un valor JSON con el estatus del proceso y un result con el mensaje de exito o fracaso de la inserción, el estatus puede ser true o false</returns>
+            <example>https://localhost:44388/humanos</example>
+        </member>
+        <member name="M:sithectest.Controllers.HumanosController.Put(sithectest.Models.Humanos)">
+            <summary>
+            Modifica un registro de la tabla Humanos
+            </summary>
+            <param name="humanos">Objeto JASON de tipo Humanos con las propiedades Id, Nombre, Sexo, Edad, Altura, Peso. 
+            Ejemplo: { "Id":5, "Nombre":"Jose Lopez", "Sexo":"Masculino", "Edad":55, "Altura":1.75, "Peso": 72 }</param>
+            <returns>Retorna un valor JSON con el estatus del proceso y un result con el mensaje de exito o fracaso de la modificación, el estatus puede ser true o false</returns>
+            <example>https://localhost:44388/humanos</example>
+        </member>
+        <member name="M:sithectest.Controllers.HumanosController.Delete(System.Int32)">
+            <summary>
+            Elimina un registro de la tabla Humanos
+            </summary>
+            <param name="id">Identificador del registro a borrar</param>
+            <returns>Retorna un valor JSON con el estatus del proceso y un result con el mensaje de exito o fracaso del borrado, el estatus puede ser true o false</returns>
+            <example>https://localhost:44388/humanos/10</example>
+        </member>
+        <member name="T:sithectest.Controllers.OperacionMatematicaController">
+            <summary>
+            Controler que permite realizar una operación matematica del tipo suma, resta, multiplicación y división con dos números
+            </summary>
+        </member>
+        <member name="M:sithectest.Controllers.OperacionMatematicaController.Post(sithectest.Models.OperacionMatematicaData)">
+            <summary>
+            Realiza una operación matemática entre dos número y retorna el resultado 
+            </summary>
+            <param name="Datos">Objeto de tipo OperacionMatematicaData que contiene la operación a realizar y los números utilizados en el cálculo en formato JSON
+            ejemlo: { "operacion":"DIVIDE","numero1":324,"numero2":33 }</param>
+            <returns>Retorna un valor JSON con el estatus del proceso y su resultado, el estatus puede ser true o false</returns>
+            <example>https://localhost:44388/operacionmatematica</example>
+            
+        </member>
+        <member name="M:sithectest.Controllers.OperacionMatematicaController.Get(System.String,System.Double,System.Double)">
+            <summary>
+            Realiza una operación matemática entre dos números y retorna el resultado 
+            </summary>
+            <param name="operacion">Operación a realizar: valores válidos: "SUMA", "RESTA", "MULTIPLICA", "DIVIDE" </param>
+            <param name="numero1">Primer número</param>
+            <param name="numero2">Segundo número</param>
+            <returns>Retorna un valor JSON con el estatus del proceso y su resultado, el estatus puede ser true o false</returns>
+            <example>https://localhost:44388/operacionmatematica/multiplica/554/11</example>
+        </member>
+        <member name="M:sithectest.Controllers.OperacionMatematicaController.Calcula(System.String,System.Double,System.Double)">
+            <summary>
+            Reliza el cálculo matematico
+            </summary>
+            <param name="operacion">Operación a realizar: valores válidos: "SUMA", "RESTA", "MULTIPLICA", "DIVIDE"</param>
+            <param name="numero1">Primero número</param>
+            <param name="numero2">Segundo número</param>
+            <returns>Retorna un valor JSON con el estatus del proceso y su resultado, el estatus puede ser true o false</returns>
+        </member>
+        <member name="T:sithectest.Models.Humanos">
+            <summary>
+            Modelo para la tabla Humanos
+            </summary>
+        </member>
+        <member name="P:sithectest.Models.Humanos.Id">
+            <summary>
+            Identificador del registro
+            </summary>
+        </member>
+        <member name="P:sithectest.Models.Humanos.Nombre">
+            <summary>
+            Nombre del humano
+            </summary>
+        </member>
+        <member name="P:sithectest.Models.Humanos.Sexo">
+            <summary>
+            Sexo de la persona, MASCULINO ó FEMENINO
+            </summary>
+        </member>
+        <member name="P:sithectest.Models.Humanos.Edad">
+            <summary>
+            Edad en años
+            </summary>
+        </member>
+        <member name="P:sithectest.Models.Humanos.Altura">
+            <summary>
+            Altura en metros y centimetros en formato decimal
+            </summary>
+        </member>
+        <member name="P:sithectest.Models.Humanos.Peso">
+            <summary>
+            Peso en kilogramos
+            </summary>
+        </member>
+        <member name="T:sithectest.Models.OperacionMatematicaData">
+            <summary>
+            Clase que contiene los datos necesarios para realizar la operacion matemática desde el metodo POST
+            </summary>
+        </member>
+        <member name="P:sithectest.Models.OperacionMatematicaData.operacion">
+            <summary>
+            Operación a realizar - Valores permitidos: SUMA, RESTA, MULTIPLICA, DIVIDE
+            </summary>
+        </member>
+        <member name="P:sithectest.Models.OperacionMatematicaData.numero1">
+            <summary>
+            Primer número de la operación
+            </summary>
+        </member>
+        <member name="P:sithectest.Models.OperacionMatematicaData.numero2">
+            <summary>
+            Segundo número de la operación
+            </summary>
+        </member>
+        <member name="M:sithectest.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:sithectest.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+        </member>
+    </members>
+</doc>
